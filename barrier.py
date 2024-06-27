@@ -6,7 +6,7 @@ class Barrier(Turtle):
         super().__init__()
         self.shape("square")
         self.color("white")
-        self.shapesize(stretch_wid=1, stretch_len=3)
+        self.shapesize(stretch_wid=0.66, stretch_len=1.66)
         self.penup()
 
     

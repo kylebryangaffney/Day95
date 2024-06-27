@@ -1,3 +1,4 @@
+# alien.py
 import turtle
 from laser import Laser
 
@@ -5,6 +6,8 @@ MAX_LEFT = -350
 MAX_RIGHT = 350
 MAX_TOP = 250
 MAX_BOTTOM = -250
+
+MOVE_INTERVAL = 3
 
 alien_points = ((0, 0), (0, 10), (10, 10), (10, 20), (20, 20), (20, 10), (30, 10),
     (30, 0), (40, 0), (40, 10), (30, 10), (30, 20), (40, 20), (40, 30),
@@ -25,24 +28,34 @@ class Alien(turtle.Turtle):
         self.goto(0, 0)
         self.lasers = []
 
+    def move_alien(self, direction):
+        if direction == 0:
+            self.go_down()
+        elif direction == 1:
+            self.go_left()
+        elif direction == 2:
+            self.go_down()
+        elif direction == 3:
+            self.go_right()
+
     def go_left(self):
         if self.xcor() > MAX_LEFT:
-            new_x = self.xcor() - 20
+            new_x = self.xcor() - MOVE_INTERVAL
             self.goto(new_x, self.ycor())
 
     def go_right(self):
         if self.xcor() < MAX_RIGHT:
-            new_x = self.xcor() + 20
+            new_x = self.xcor() + MOVE_INTERVAL
             self.goto(new_x, self.ycor())
 
     def go_up(self):
         if self.ycor() < MAX_TOP:
-            new_y = self.ycor() + 20
+            new_y = self.ycor() + MOVE_INTERVAL
             self.goto(self.xcor(), new_y)
 
     def go_down(self):
         if self.ycor() > MAX_BOTTOM:
-            new_y = self.ycor() - 20
+            new_y = self.ycor() - MOVE_INTERVAL
             self.goto(self.xcor(), new_y)
 
     def shoot(self):
