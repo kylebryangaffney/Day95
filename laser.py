@@ -4,7 +4,7 @@ class Laser(Turtle):
     def __init__(self):
         super().__init__()
         self.shape("square")
-        self.color("red")
+        self.color("purple")
         self.shapesize(stretch_wid=1, stretch_len=0.2)
         self.penup()
         self.y_move = 10

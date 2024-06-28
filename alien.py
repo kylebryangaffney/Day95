@@ -7,7 +7,7 @@ MAX_RIGHT = 350
 MAX_TOP = 250
 MAX_BOTTOM = -250
 
-MOVE_INTERVAL = 3
+MOVE_INTERVAL = 6
 
 alien_points = ((0, 0), (0, 10), (10, 10), (10, 20), (20, 20), (20, 10), (30, 10),
     (30, 0), (40, 0), (40, 10), (30, 10), (30, 20), (40, 20), (40, 30),
@@ -29,13 +29,11 @@ class Alien(turtle.Turtle):
         self.lasers = []
 
     def move_alien(self, direction):
-        if direction == 0:
+        if direction == "down":
             self.go_down()
-        elif direction == 1:
+        elif direction == "left":
             self.go_left()
-        elif direction == 2:
-            self.go_down()
-        elif direction == 3:
+        elif direction == "right":
             self.go_right()
 
     def go_left(self):
